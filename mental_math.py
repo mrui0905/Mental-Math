@@ -21,18 +21,25 @@ def run_game(game_mode='standard'):
     t_end = time.time() + 60 * 2
     correct, false = 0, 0
     while time.time() < t_end:
-        mode = random.randint(0, 3)
+        
+        if game_mode=='standard':
+            mode = random.randint(0, 3)
 
-        if mode < 2:
-            a = random.randint(1, 100)
-            b = random.randint(1, 100)
-        elif mode == 2:
-            a = random.randint(2, 12)
-            b = random.randint(2, 12)
-        else:
-            a = random.randint(2, 12)
-            b = random.randint(2, 12)
-            a = a*b
+            if mode < 2:
+                a = random.randint(1, 100)
+                b = random.randint(1, 100)
+            elif mode == 2:
+                a = random.randint(2, 100)
+                b = random.randint(2, 12)
+            else:
+                a = random.randint(2, 12)
+                b = random.randint(2, 12)
+                a = a*b
+
+        elif game_mode=='large_multi':
+            mode = 2
+            a = random.randint(13, 100)
+            b = random.randint(13, 100)
 
         operations = {0: '+', 1: '-', 2: 'x', 3: '/'}
 
@@ -62,5 +69,5 @@ def run_game(game_mode='standard'):
     print(f'Accuracy: {correct/(correct+false)}')
         
 if __name__ == "__main__":
-    run_game()
+    run_game('large_multi')
 
