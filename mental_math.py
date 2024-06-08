@@ -41,6 +41,26 @@ def run_game(game_mode='standard'):
             a = random.randint(13, 100)
             b = random.randint(13, 100)
 
+        elif game_mode =='complex':
+            mode = random.randint(0, 9)
+            if 1 <= mode <= 2:
+                mode = 1
+            elif 3 <= mode <= 7:
+                mode = 2
+            else:
+                mode = 3
+
+            if mode < 2:
+                a = random.randint(101, 1000)
+                b = random.randint(101, 1000)
+            elif mode == 2:
+                a = random.randint(13, 100)
+                b = random.randint(13, 100)
+            else:
+                a = random.randint(13, 100)
+                b = random.randint(2, 12)
+                a = a*b
+
         operations = {0: '+', 1: '-', 2: 'x', 3: '/'}
 
         if mode == 0:
@@ -69,5 +89,5 @@ def run_game(game_mode='standard'):
     print(f'Accuracy: {correct/(correct+false)}')
         
 if __name__ == "__main__":
-    run_game('large_multi')
+    run_game('complex')
 

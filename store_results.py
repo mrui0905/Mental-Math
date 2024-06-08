@@ -4,9 +4,11 @@ def update_csv(correct, false, mode='standard'):
     print(correct, false, mode)
     # try: 
     if mode == 'standard':
-        file_path = 'data/standard.csv'
+        file_path = '/Users/matthew/Documents/College/Projects/Mental-Math/data/standard.csv'
     elif mode == 'large_multi':
         file_path = '/Users/matthew/Documents/College/Projects/Mental-Math/data/large_multi.csv'
+    elif mode == 'complex':
+        file_path = '/Users/matthew/Documents/College/Projects/Mental-Math/data/complex.csv'
 
     df = pd.read_csv(file_path)
 
@@ -24,5 +26,5 @@ def update_csv(correct, false, mode='standard'):
     return True
 
 if __name__ == '__main__':
-    update_csv(10, 5, 'large_multi')
+    update_csv(10, 5, 'complex')
 
